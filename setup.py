@@ -394,7 +394,7 @@ if 'BT_USE_EGL' in CXX_FLAGS:
   sources += ['examples/OpenGLWindow/EGLOpenGLWindow.cpp']
 
 if _platform == "linux" or _platform == "linux2":
-  libraries = ['dl', 'pthread']
+  libraries = []
   CXX_FLAGS += '-D_LINUX '
   CXX_FLAGS += '-DGLEW_STATIC '
   CXX_FLAGS += '-DGLEW_INIT_OPENGL11_FUNCTIONS=1 '
