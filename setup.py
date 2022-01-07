@@ -422,7 +422,7 @@ if _platform == "linux" or _platform == "linux2":
 
 elif _platform == "win32":
   print("win32!")
-  libraries = ['Ws2_32', 'Winmm', 'User32', 'Opengl32', 'kernel32', 'glu32', 'Gdi32', 'Comdlg32']
+  libraries = ['ws2_32', 'winmm', 'user32', 'opengl32', 'kernel32', 'glu32', 'gdi32', 'comdlg32']
   CXX_FLAGS += '-DWIN32 '
   CXX_FLAGS += '-DGLEW_STATIC '
   sources = sources + ["examples/ThirdPartyLibs/enet/win32.c"]\
