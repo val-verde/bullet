@@ -408,9 +408,7 @@ if _platform == "linux" or _platform == "linux2":
   EGL_CXX_FLAGS += '-fPIC '  # for plugins
 
   sources = sources + ["examples/ThirdPartyLibs/enet/unix.c"]\
-  +["examples/OpenGLWindow/X11OpenGLWindow.cpp"]\
-  +["examples/ThirdPartyLibs/glad/gl.c"]\
-  +["examples/ThirdPartyLibs/glad/glx.c"]
+  +["examples/ThirdPartyLibs/glad/gl.c"]
   include_dirs += ["examples/ThirdPartyLibs/optionalX11"]
 
   if 'BT_USE_EGL' in EGL_CXX_FLAGS:
