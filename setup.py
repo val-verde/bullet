@@ -1,8 +1,10 @@
 from setuptools import find_packages
-from sys import platform as _platform
+import sysconfig
 import sys
 import glob
 import os
+
+_platform = sysconfig.get_platform().split('-')[0]
 
 from distutils.core import setup
 from distutils.extension import Extension
