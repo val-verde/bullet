@@ -513,12 +513,12 @@ template<> EIGEN_STRONG_INLINE Packet4f pmax<Packet4f>(const Packet4f& a, const 
 #endif
 }
 template<> EIGEN_STRONG_INLINE Packet2d pmax<Packet2d>(const Packet2d& a, const Packet2d& b) {
-#if EIGEN_COMP_GNUC_STRICT && EIGEN_COMP_GNUC < 63
+#if EIGEN_COMP_GNUC_STRICT && EIGEN_COMP_GNUC < 63 && !defined(__clang__)
   // There appears to be a bug in GCC, by which the optimizer may
   // flip the argument order in calls to _mm_max_pd, so we have to
   // resort to inline ASM here. This is supposed to be fixed in gcc6.3,
   // see also: https://gcc.gnu.org/bugzilla/show_bug.cgi?id=72867
-  #ifdef EIGEN_VECTORIZE_AVX
+  #if defined(EIGEN_VECTORIZE_AVX)
   Packet2d res;
   asm("vmaxpd %[a], %[b], %[res]" : [res] "=x" (res) : [a] "x" (a), [b] "x" (b));
   #else
